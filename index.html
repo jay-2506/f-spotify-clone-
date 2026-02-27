@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clone | Premium</title>
+    <!-- Tailwind Play CDN for immediate visual restoration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'spotify-green': '#1DB954',
+                        'spotify-green-hover': '#1ed760',
+                        'spotify-black': '#000000',
+                        'spotify-dark': '#121212',
+                        'spotify-grey': '#1a1a1a',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/css">
+        /* Ensuring standard CSS variables are available if index.css is still slow */
+        :root {
+            --spotify-green: #1DB954;
+            --panel-gap: 8px;
+            --sidebar-width: 280px;
+            --player-height: 90px;
+            --panel-radius: 12px;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div id="root"></div>
+    <script type="module" src="/main.jsx"></script>
+</body>
+
+</html>
