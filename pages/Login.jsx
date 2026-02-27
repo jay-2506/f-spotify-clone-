@@ -17,12 +17,15 @@ export default function Login() {
         setLoading(true);
         setError("");
         try {
-            const res = await API.post("/login", form).then(() => {
-
+            const res = await API.post("/login", form);
+            if (res.status === 200) {
+                console.log(res);
                 setUser(res.data.user);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
-            })
-            navigate("/");
+                navigate("/");
+
+            }
+
         } catch (err) {
             setError(err.response?.data?.message || "Invalid credentials. Please try again.");
         } finally {
