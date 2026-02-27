@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:3000/api",
-    withCredentials: true, // for cookie JWT
+  baseURL: "https://spotify-clone-6qrx.onrender.com",
+  withCredentials: true, // for cookie JWT
 });
 
 export default API;
