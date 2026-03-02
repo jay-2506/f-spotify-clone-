@@ -26,7 +26,7 @@ function AppContent() {
                     </ProtectedRoute>
                 } />
 
-                <Route path="/songs" element={
+                <Route path="/song" element={
                     <ProtectedRoute>
                         <Layout>
                             <Songs  />
