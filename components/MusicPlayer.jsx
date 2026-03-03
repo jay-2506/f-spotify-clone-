@@ -8,7 +8,9 @@ import {
 export default function MusicPlayer() {
     const {
         currentSong, isPlaying, playSong, pauseSong,
-        volume, setVolume, progress, duration, seek
+        volume, setVolume, progress, duration, seek,
+        playNext, playPrevious, toggleShuffle, toggleRepeat,
+        isShuffle, repeatMode
     } = useContext(PlayerContext);
 
     if (!currentSong) return null;
@@ -50,23 +52,38 @@ export default function MusicPlayer() {
             {/* Main Player Controls */}
             <div className="flex flex-col items-center gap-1 md:gap-2 flex-1 max-w-[600px] relative z-10 px-2">
                 <div className="flex items-center gap-4 md:gap-7">
-                    <button className="text-subdued hover:text-white transition-all transform hover:scale-110 active:scale-95 hidden sm:block">
+                    <button
+                        onClick={toggleShuffle}
+                        className={`${isShuffle ? 'text-spotify-green' : 'text-subdued hover:text-white'} transition-all transform hover:scale-110 active:scale-95 hidden sm:block relative`}
+                    >
                         <Shuffle size={16} className="md:w-[18px] md:h-[18px]" />
+                        {isShuffle && <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-spotify-green rounded-full"></div>}
                     </button>
-                    <button className="text-white/80 hover:text-white transition-all transform hover:scale-110 active:scale-90">
+                    <button
+                        onClick={playPrevious}
+                        className="text-white/80 hover:text-white transition-all transform hover:scale-110 active:scale-90"
+                    >
                         <SkipBack size={20} fill="currentColor" className="md:w-[24px] md:h-[24px]" />
                     </button>
                     <button
-                        onClick={isPlaying ? pauseSong : () => playSong(currentSong)}
+                        onClick={isPlaying ? togglePlay : () => playSong(currentSong)}
                         className="w-9 h-9 md:w-10 md:h-10 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-2xl hover:bg-spotify-green-hover"
                     >
                         {isPlaying ? <Pause fill="black" size={20} className="md:w-[24px] md:h-[24px]" /> : <Play fill="black" size={20} className="ml-0.5 md:w-[24px] md:h-[24px]" />}
                     </button>
-                    <button className="text-white/80 hover:text-white transition-all transform hover:scale-110 active:scale-90">
+                    <button
+                        onClick={playNext}
+                        className="text-white/80 hover:text-white transition-all transform hover:scale-110 active:scale-90"
+                    >
                         <SkipForward size={20} fill="currentColor" className="md:w-[24px] md:h-[24px]" />
                     </button>
-                    <button className="text-subdued hover:text-white transition-all transform hover:scale-110 active:scale-95 hidden sm:block">
+                    <button
+                        onClick={toggleRepeat}
+                        className={`${repeatMode > 0 ? 'text-spotify-green' : 'text-subdued hover:text-white'} transition-all transform hover:scale-110 active:scale-95 hidden sm:block relative`}
+                    >
                         <Repeat size={16} className="md:w-[18px] md:h-[18px]" />
+                        {repeatMode > 0 && <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-spotify-green rounded-full"></div>}
+                        {repeatMode === 2 && <span className="absolute -top-1 -right-1.5 text-[8px] font-bold bg-black text-spotify-green rounded-full w-3 h-3 flex items-center justify-center border border-spotify-green">1</span>}
                     </button>
                 </div>
 

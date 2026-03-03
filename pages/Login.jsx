@@ -38,7 +38,7 @@ export default function Login() {
             <div className="w-full max-w-[450px] bg-black rounded-lg p-10 flex flex-col gap-8 shadow-2xl">
                 <div className="flex flex-col items-center gap-2">
                     <Disc size={48} className="text-spotify-green mb-2" />
-                    <h1 className="text-3xl font-black text-white italic">ANTIGRAVITY</h1>
+                    <h1 className="text-3xl font-black text-white italic">Jay's Music</h1>
                     <p className="text-2xl font-bold text-white mt-4">Log in to continue</p>
                 </div>
 
@@ -94,7 +94,7 @@ export default function Login() {
                 <p className="text-center text-subdued text-sm font-medium">
                     Don't have an account?{" "}
                     <Link to="/register" className="text-white font-bold hover:text-spotify-green underline">
-                        Sign up for Antigravity
+                        Sign up for Jay's Music
                     </Link>
                 </p>
             </div>

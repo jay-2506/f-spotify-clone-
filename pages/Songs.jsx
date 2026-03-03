@@ -38,7 +38,7 @@
 //                     <span className="text-[12px] font-bold uppercase tracking-wider">Playlist</span>
 //                     <h1 className="text-huge max-w-[900px] truncate leading-tight">All Tracks</h1>
 //                     <div className="flex items-center gap-1.5 text-sm font-bold mt-2">
-//                         <span className="hover:underline cursor-pointer">Antigravity Official</span>
+//                         <span className="hover:underline cursor-pointer">Jay's Music Official</span>
 //                         <span className="text-white/70">•</span>
 //                         <span className="text-white/70 font-medium">{songs.length} songs</span>
 //                     </div>
@@ -161,6 +161,7 @@ export default function Songs() {
         fetchSongs();
     }, [search]); // 🔥 VERY IMPORTANT
 
+
     return (
         <div className="flex flex-col min-h-full animate-fade-in">
 
@@ -193,7 +194,7 @@ export default function Songs() {
             {/* Action Bar */}
             <div className="px-4 md:px-8 py-4 md:py-6 flex items-center gap-6 md:gap-8 sticky top-16 z-40 bg-black/20 backdrop-blur-sm -mx-4 md:mx-0">
                 <button
-                    onClick={() => songs.length > 0 && playSong(songs[0])}
+                    onClick={() => songs.length > 0 && playSong(songs[0], songs)}
                     className="w-12 h-12 md:w-14 md:h-14 bg-spotify-green text-black rounded-full flex items-center justify-center hover:scale-105 transition-all shadow-2xl"
                 >
                     <Play fill="black" size={24} className="ml-1 md:w-[28px] md:h-[28px]" />
@@ -230,7 +231,7 @@ export default function Songs() {
                         return (
                             <div
                                 key={song._id}
-                                onClick={() => playSong(song)}
+                                onClick={() => playSong(song, songs)}
                                 className="grid grid-cols-[30px_1fr_80px] md:grid-cols-[40px_4fr_3fr_1fr] gap-2 md:gap-4 px-2 md:px-4 py-2 rounded-md hover:bg-white/10 cursor-pointer group transition-all items-center"
                             >
                                 <span

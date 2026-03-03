@@ -35,7 +35,7 @@ export default function PlaylistSongs() {
 
   const handlePlayAll = () => {
     if (songs.length > 0) {
-      playSong(songs[0]);
+      playSong(songs[0], songs);
     }
   };
 
@@ -60,10 +60,10 @@ export default function PlaylistSongs() {
             {playlist?.name || 'Loading...'}
           </h1>
           <p className="text-sm font-medium text-white/70 max-w-[600px] mb-4 line-clamp-2">
-            {playlist?.description || 'Your daily dose of fresh music, curated by Antigravity AI.'}
+            {playlist?.description || 'Your daily dose of fresh music, curated by Jay\'s Music.'}
           </p>
           <div className="flex items-center gap-1.5 text-sm font-bold">
-            <span className="hover:underline cursor-pointer">Antigravity</span>
+            <span className="hover:underline cursor-pointer">Jay's Music</span>
             <span className="text-white/70">•</span>
             <span>{songs.length} songs, </span>
             <span className="text-white/70 font-medium">about 45 min</span>
@@ -116,7 +116,7 @@ export default function PlaylistSongs() {
                 return (
                   <div
                     key={song._id}
-                    onClick={() => playSong(song)}
+                    onClick={() => playSong(song, songs)}
                     className="grid grid-cols-[16px_4fr_3fr_1fr] gap-4 px-4 py-2 rounded-md hover:bg-white/10 cursor-pointer group transition-all items-center"
                   >
                     <div className="flex items-center justify-center w-4">
