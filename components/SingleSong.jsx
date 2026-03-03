@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API from "../api/axios";
-import { Play, Pause, ChevronLeft, Calendar, Music, Disc } from "lucide-react";
+import { Play, Pause, ChevronLeft, Calendar, Music, Disc, Plus } from "lucide-react";
 import { PlayerContext } from "../context/PlayerContext";
 
 const SingleSong = () => {

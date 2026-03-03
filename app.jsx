@@ -29,7 +29,7 @@ function AppContent() {
                 <Route path="/song" element={
                     <ProtectedRoute>
                         <Layout>
-                            <Songs  />
+                            <Songs />
                         </Layout>
                     </ProtectedRoute>
                 } />
